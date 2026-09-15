@@ -33,7 +33,7 @@ limitations under the License.
 
 [![NPM version][npm-image]][npm-url] [![Build Status][test-image]][test-url] [![Coverage Status][coverage-image]][coverage-url] <!-- [![dependencies][dependencies-image]][dependencies-url] -->
 
-> Factorize a sequence length into a product of integers and store the results in a single-precision floating-point array.
+> Factorize a sequence length into a product of integers and store the results in a 32-bit unsigned integer array.
 
 <!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
 
@@ -45,42 +45,60 @@ limitations under the License.
 
 <!-- Package usage documentation. -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/fft-base-fftpack-float32-decompose
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import decompose from 'https://cdn.jsdelivr.net/gh/stdlib-js/fft-base-fftpack-float32-decompose@deno/mod.js';
+var decompose = require( '@stdlib/fft-base-fftpack-float32-decompose' );
 ```
 
 #### decompose( N, M, initial, si, oi, out, so, oo )
 
-Factorizes a sequence length into a product of integers and stores the results in a single-precision floating-point array.
+Factorizes a sequence length into a product of integers and stores the results in a 32-bit unsigned integer array.
 
 ```javascript
-import Float32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@deno/mod.js';
+var Uint32Array = require( '@stdlib/array-uint32' );
 
-var initial = new Float32Array( [ 3.0, 4.0, 2.0, 5.0 ] ); // as found in FFTPACK
+var initial = new Uint32Array( [ 3, 4, 2, 5 ] ); // as found in FFTPACK
 var N = 630;
-var factors = new Float32Array( 7 );
+var factors = new Uint32Array( 7 );
 
 var numFactors = decompose( N, 4, initial, 1, 0, factors, 1, 0 );
 // returns 5
 
 console.log( factors );
-// => <Float32Array>[ 630.0, 5.0, 2.0, 3.0, 3.0, 5.0, 7.0 ]
+// => <Uint32Array>[ 630, 5, 2, 3, 3, 5, 7 ]
 ```
 
 The function accepts the following arguments:
 
 -   **N**: length of the sequence.
 -   **M**: number of trial divisors.
--   **initial**: [`Float32Array`][@stdlib/array/float32] of initial trial divisors.
+-   **initial**: [`Uint32Array`][@stdlib/array/uint32] of initial trial divisors.
 -   **si**: stride length for `initial`.
 -   **oi**: starting index for `initial`.
--   **out**: output [`Float32Array`][@stdlib/array/float32] for storing factorization results.
+-   **out**: output [`Uint32Array`][@stdlib/array/uint32] for storing factorization results.
 -   **so**: stride length for `out`.
 -   **oo**: starting index for `out`.
 
@@ -113,11 +131,12 @@ The function returns the number of factors into which `N` was decomposed.
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-import Float32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@deno/mod.js';
-import decompose from 'https://cdn.jsdelivr.net/gh/stdlib-js/fft-base-fftpack-float32-decompose@deno/mod.js';
+var Uint32Array = require( '@stdlib/array-uint32' );
+var logEach = require( '@stdlib/console-log-each' );
+var decompose = require( '@stdlib/fft-base-fftpack-float32-decompose' );
 
-var initial = new Float32Array( [ 3.0, 4.0, 2.0, 5.0 ] ); // as found in FFTPACK
-var factors = new Float32Array( 4 );
+var initial = new Uint32Array( [ 3, 4, 2, 5 ] ); // as found in FFTPACK
+var factors = new Uint32Array( 4 );
 
 var nf = decompose( 12, 4, initial, 1, 0, factors, 1, 0 );
 
@@ -125,10 +144,7 @@ console.log( 'Sequence length: %d', 12 );
 console.log( 'Number of factors: %d', nf );
 
 console.log( 'Factors:' );
-var j;
-for ( j = 0; j < nf; j++ ) {
-    console.log( '  %d', factors[ j+2 ] );
-}
+logEach( '  %d', factors.slice( 2 ) );
 ```
 
 </section>
@@ -160,7 +176,7 @@ for ( j = 0; j < nf; j++ ) {
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -223,7 +239,7 @@ Copyright &copy; 2016-2026. The Stdlib [Authors][stdlib-authors].
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/fft-base-fftpack-float32-decompose/main/LICENSE
 
-[@stdlib/array/float32]: https://github.com/stdlib-js/array-float32/tree/deno
+[@stdlib/array/uint32]: https://github.com/stdlib-js/array-uint32
 
 </section>
 
