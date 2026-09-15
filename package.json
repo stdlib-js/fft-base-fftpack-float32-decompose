@@ -36,12 +36,10 @@
   "bugs": {
     "url": "https://github.com/stdlib-js/stdlib/issues"
   },
-  "dependencies": {
-    "@stdlib/math-base-special-floor": "^0.2.4"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@stdlib/array-float32": "^0.2.3",
-    "@stdlib/assert-is-same-float32array": "^0.2.3",
+    "@stdlib/array-uint32": "^0.2.3",
+    "@stdlib/console-log-each": "^0.2.4",
     "@stdlib/math-base-assert-is-nanf": "^0.2.3",
     "@stdlib/math-base-special-floorf": "^0.2.3",
     "@stdlib/math-base-special-log2f": "github:stdlib-js/math-base-special-log2f#main",
