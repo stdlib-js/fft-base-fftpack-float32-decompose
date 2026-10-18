@@ -45,32 +45,14 @@ limitations under the License.
 
 <!-- Package usage documentation. -->
 
-<section class="installation">
 
-## Installation
-
-```bash
-npm install @stdlib/fft-base-fftpack-float32-decompose
-```
-
-Alternatively,
-
--   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
--   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
--   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
-
-The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
-
-To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
-
-</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-var decompose = require( '@stdlib/fft-base-fftpack-float32-decompose' );
+import decompose from 'https://cdn.jsdelivr.net/gh/stdlib-js/fft-base-fftpack-float32-decompose@deno/mod.js';
 ```
 
 #### decompose( N, M, initial, si, oi, out, so, oo )
@@ -78,7 +60,7 @@ var decompose = require( '@stdlib/fft-base-fftpack-float32-decompose' );
 Factorizes a sequence length into a product of integers and stores the results in a 32-bit unsigned integer array.
 
 ```javascript
-var Uint32Array = require( '@stdlib/array-uint32' );
+import Uint32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-uint32@deno/mod.js';
 
 var initial = new Uint32Array( [ 3, 4, 2, 5 ] ); // as found in FFTPACK
 var N = 630;
@@ -131,9 +113,9 @@ The function returns the number of factors into which `N` was decomposed.
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-var Uint32Array = require( '@stdlib/array-uint32' );
-var logEach = require( '@stdlib/console-log-each' );
-var decompose = require( '@stdlib/fft-base-fftpack-float32-decompose' );
+import Uint32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-uint32@deno/mod.js';
+import logEach from 'https://cdn.jsdelivr.net/gh/stdlib-js/console-log-each@deno/mod.js';
+import decompose from 'https://cdn.jsdelivr.net/gh/stdlib-js/fft-base-fftpack-float32-decompose@deno/mod.js';
 
 var initial = new Uint32Array( [ 3, 4, 2, 5 ] ); // as found in FFTPACK
 var factors = new Uint32Array( 4 );
@@ -176,7 +158,7 @@ logEach( '  %d', factors.slice( 2 ) );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -239,7 +221,7 @@ Copyright &copy; 2016-2026. The Stdlib [Authors][stdlib-authors].
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/fft-base-fftpack-float32-decompose/main/LICENSE
 
-[@stdlib/array/uint32]: https://github.com/stdlib-js/array-uint32
+[@stdlib/array/uint32]: https://github.com/stdlib-js/array-uint32/tree/deno
 
 </section>
 
